@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+export GOPATH=$(shell pwd)/debian/go
+export GOBIN=${GOPATH}/bin
+
+%:
+	dh $@ 
+override_dh_auto_configure:
+	mkdir -p ${GOPATH}/bin
+	go get
+	dh_auto_configure
+
+override_dh_auto_build:
+	go build vcfanno.go
+	dh_auto_build
+
+override_dh_clean:
+	rm -rf ${GOPATH}
+	rm -f vcfanno
+	dh_clean
