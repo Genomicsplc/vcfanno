@@ -2,7 +2,7 @@ Source: vcfanno
 Section: science
 Priority: optional
 Maintainer: Stuart Teasdale <stuart.teasdale@genomicsplc.com>
-Build-Depends: debhelper (>= 8.0.0), go-lang
+Build-Depends: debhelper (>= 8.0.0), golang-go
 Standards-Version: 3.9.4
 Vcs-Browser: https://github.com/brentp/vcfanno
 
